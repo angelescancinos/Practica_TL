@@ -1,22 +1,29 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
-word = random.choice(words)
-guessed = []
-attempts = 6
+# Creamos diccionario/categorías
+category = {
+    "1. Fácil" : ["lista", "bucle"],
+    "2. Medio" : ["funcion", "python", "entero", "cadena"],
+    "3. Difícil": ["programa", "variable"]
+    }
 
 print("¡Bienvenido al Ahorcado!")
 print()
+
+# Mostramos categorías disponibles y dejamos elegir
+print(f"Categorías disponibles: {list(category)}")
+print()
+pick = int(input("Elija una categoría (1,2 o 3):  "))
+
+if pick == 1:
+    word = random.choice(category["1. Fácil"])
+elif pick == 2:
+    word = random.choice(category["2. Medio"])
+else:
+    word = random.choice(category["3. Difícil"])
+
+guessed = []
+attempts = 6
 
 while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
